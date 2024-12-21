@@ -1,6 +1,6 @@
 import pygame
 from constants import *
-import time
+from player import Player
 
 def main():
     print("Starting asteroids!")
@@ -13,8 +13,8 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
-    frame_count = 0
-    start_time = time.time()
+    # frame_count = 0
+    # start_time = time.time()
 
     while True:
         for event in pygame.event.get():
@@ -22,13 +22,17 @@ def main():
                 return
 
         screen.fill((0, 0, 0))  # clear the screen
+
+        player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
+        player.draw(screen)
+
         pygame.display.flip()
 
-        frame_count += 1
-        if time.time() - start_time > 1:
-            print(f"FPS: {frame_count}")
-            frame_count = 0
-            start_time = time.time()
+        # frame_count += 1
+        # if time.time() - start_time > 1:
+        #     print(f"FPS: {frame_count}")
+        #     frame_count = 0
+        #     start_time = time.time()
 
         dt = clock.tick(144) / 1000.0  # limit the FPS to 60 and convert to seconds
 
