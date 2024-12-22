@@ -13,17 +13,20 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
-    # frame_count = 0
-    # start_time = time.time()
+    # game variables
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
+        
+
         screen.fill((0, 0, 0))  # clear the screen
 
-        player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
+        # player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
+        player.update(dt)
         player.draw(screen)
 
         pygame.display.flip()
