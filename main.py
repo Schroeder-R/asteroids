@@ -25,7 +25,6 @@ def main():
 
         screen.fill((0, 0, 0))  # clear the screen
 
-        # player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
         player.update(dt)
         player.draw(screen)
 
